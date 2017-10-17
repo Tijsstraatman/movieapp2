@@ -16,24 +16,7 @@
 
 <table id="example" class="display" cellspacing="0" width="100%">
     
-    <thead>
-    <tr>
-        <th>Column 1</th>
-        <th>Column 2</th>
-        <th>Column 3</th>
-        <th>Column 4</th>
-        <th>Column 5</th>
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-        <th>Column 1</th>
-        <th>Column 2</th>
-        <th>Column 3</th>
-        <th>Column 4</th>
-        <th>Column 5</th>
-    </tr>
-
+ 
     <div id="sidebar-content-add" class="col-md-10 sidebar-content">
         <h4>Add new movie</h4>
         Title:<br>
@@ -44,6 +27,33 @@
         <input type="text" id="addAddress"><br>
                 
         <input type="submit" id="addButton" value="Create">
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="container">
+                <div class="row content">
+                    <div class="main-container container-fluid row">
+                        <div class="demo-container">
+                            <h1 class="text-center">Movie overview</h1>
+                            <br>
+                            <table id="dataTable" class="display" style="width: 80%">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Title</th>
+                                    <th>Rating</th>
+                                    <th>Watched</th>                                    
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     </tfoot>
