@@ -1,3 +1,5 @@
+var table;
+
 $(document).ready(function() {
     var t = $('#dataTable').DataTable();
     var counter = 1;
@@ -12,38 +14,51 @@ $(document).ready(function() {
 
 function createMovie() {
     var obj = {
-        firstName: $("#addFirstName").val(),
-        lastName: $("#addLastName").val(),
-        address: $("#addAddress").val(),
-        postalCode: $("#addPostalCode").val(),
-        city: $("#addCity").val(),
-        country: $("#addCountry").val(),
-        phoneNumber: $("#addPhoneNumber").val(),
-        email: $("#addEmail").val()
+        title: $("#addTitle").val(),
+        rating: $("#addRating").val(),
+        watched: $("#addWatched").val()
+
     };
-    makeAjaxRequest("POST", "/addGuest", obj, function(guest) {
-        if (guest) {
+
+    makeAjaxRequest("POST", "/addMovie", obj, function(movie) {
+        if (movie) {
             console.log(true);
-        console.log(guest);
-        $("#dataTable tbody").append("<tr><td>" + guest.id +
-            "</td><td>" + guest.firstName +
-            "</td><td>" + guest.lastName +
-            "</td><td>" + guest.address +
-            "</td><td>" + guest.postalCode +
-            "</td><td>" + guest.city +
-            "</td><td>" + guest.country +
-            "</td><td>" + guest.phoneNumber +
-            "</td><td>" + guest.email +
-            "</td><td>" + "<a href=\"javascript:del(" + guest.id + ")\" class=\"btn btn-danger\">Delete</a>" +
-            "</td></tr>");
-        refreshTable();
+            console.log(movie);
+            $("#dataTable tbody").append("<tr><td>" + movie.id +
+                "</td><td>" + movie.title +
+                "</td><td>" + movie.rating +
+                "</td><td>" + movie.watched +
+
+                "</td><td>" + "<a href=\"javascript:del(" + movie.id + ")\" class=\"btn btn-danger\">Delete</a>" +
+                "</td></tr>");
+            refreshTable();
         } else {
             console.log(false);
-             alert("some of your input is not correct, please verify your input");
+            alert("some of your input is not correct, please verify your input");
         }
+
+    })}
 
 function refreshTable() {
     table.clear();
     populateTable();
     table.draw();
+}
+
+
+function populateTable() {
+    var endpoint = "/getMovieList";
+    makeGetRequest(endpoint, function (movie) {
+        $.each(movie, function (key, movie) {
+            $("#dataTable tbody").append(
+                "<tr><td>" + "<a href=\"javascript:edit(" + movie.id + ")\" class=\"btn btn-danger\">Edit</a>" +
+                "</td><td>" + movie.title +
+                "</td><td>" + movie.rating +
+                "</td><td>" + movie.watched +
+
+                "</td><td>" + "<a href=\"javascript:del(" + guest.id + ")\" class=\"btn btn-danger\">Delete</a>" +
+                "</td></tr>");
+
+        });
+    });
 }
