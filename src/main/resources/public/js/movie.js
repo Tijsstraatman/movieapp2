@@ -1,8 +1,8 @@
 var table;
 
 $(document).ready(function() {
-    var t = $('#dataTable').DataTable();
-    var counter = 1;
+    table = $('#dataTable').DataTable();
+
 
     $('#addButton').on( 'click', function () {
        createMovie();
@@ -44,7 +44,6 @@ function refreshTable() {
     populateTable();
     table.draw();
 }
-
 
 function populateTable() {
     var endpoint = "/getMovieList";
