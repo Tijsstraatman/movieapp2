@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Movie App</title>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="css/jquery.dataTables.min.css"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    
 </head>
+
+
 <body>
+<center>	Movie App	</center>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+    
+    <thead>
+    <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+        <th>Column 4</th>
+        <th>Column 5</th>
+    </tr>
+
+    <div id="sidebar-content-add" class="col-md-10 sidebar-content">
+        <h4>Add new movie</h4>
+        Title:<br>
+        <input type="text" id="addFirstName"><br>
+        Rating:<br>
+        <input type="text" id="addLastName"><br>
+        Watched:<br>
+        <input type="text" id="addAddress"><br>
+                
+        <input type="submit" id="addButton" value="Create">
+    </div>
+    
+    </tfoot>
+</table>
+
+
+
+<script src="js/movies.js"></script>
+
+
 
 </body>
 </html>

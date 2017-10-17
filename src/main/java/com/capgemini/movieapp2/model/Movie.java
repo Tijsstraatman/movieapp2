@@ -2,11 +2,17 @@ package com.capgemini.movieapp2.model;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
 @Entity
 public class Movie {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
     private String title;
     private String rating;
     private Boolean watched;
@@ -18,6 +24,24 @@ public class Movie {
         this.title = title;
         this.rating = rating;
         this.watched = watched;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", rating='" + rating + '\'' +
+                ", watched=" + watched +
+                '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -43,7 +67,5 @@ public class Movie {
     public void setWatched(Boolean watched) {
         this.watched = watched;
     }
-
-
 }
 
